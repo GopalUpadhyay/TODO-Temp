@@ -1,0 +1,33 @@
+<%- include('header') -%>
+
+    <body>
+        <div class="box" id="heading">
+            <h1>
+                <%= listTitle %>
+            </h1>
+        </div>
+
+        <div class="box">
+            <% for(var i=0;i<NewItems.length;i++){ %>
+                <div class="item">
+                    <input type="checkbox">
+                    <p>
+                        <%= NewItems[i].item %>
+                    </p>
+                    <a style=" left: 10%;  background-color: red; " href="/delete/<%= NewItems[i]._id %>">Delete</a>
+                    <a style=" left: 13%; background-color:darkblue; " href="/update/<%= NewItems[i]._id %>">update</a>
+                </div>
+                <%}%>
+
+                    <form class="item" action="/<%= listTitle %>" method="post">
+                        <input type="text" name="NewItem" placeholder="Enter New Item" autocomplete="off">
+                        <button type="submit" name="type" value="<%= listTitle %>">+</button>
+                    </form>
+        </div>
+
+    </body>
+
+
+    <%- include('footer') -%>
+
+        </html>
